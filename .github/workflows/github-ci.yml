@@ -1,0 +1,13 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check lint
+        run: |
+          npm install
+          npm run lint
