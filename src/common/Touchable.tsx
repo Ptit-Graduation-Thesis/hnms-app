@@ -1,33 +1,15 @@
 import React from 'react'
-import { StyleProp, ViewStyle, Pressable, PressableProps } from 'react-native'
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native'
 
-interface TouchableProps extends PressableProps {
-  style?: StyleProp<ViewStyle>
-  disabled?: boolean
-  onPress?(): void
-  onPressIn?(): void
-  onPressOut?(): void
-  onLongPress?(): void
+interface TouchableProps extends TouchableOpacityProps {
+  children: React.ReactNode
 }
 
-const TouchableComponent: React.FC<TouchableProps> = ({ disabled, style, children, ...props }) => {
+const TouchableComponent: React.FC<TouchableProps> = ({ children, ...props }) => {
   return (
-    <Pressable
-      accessibilityRole="button"
-      disabled={disabled}
-      android_disableSound
-      focusable
-      hitSlop={5}
-      style={({ pressed }) => [
-        style,
-        {
-          opacity: pressed ? 0.6 : 1,
-        },
-      ]}
-      {...props}
-    >
+    <TouchableOpacity accessibilityRole="button" activeOpacity={0.5} {...props}>
       {children}
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 

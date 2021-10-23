@@ -36,7 +36,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/camelcase': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
     'no-console': 1,
     'react/self-closing-comp': 'error',
     'unused-imports/no-unused-vars-ts': 'off',

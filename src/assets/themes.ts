@@ -1,36 +1,38 @@
+import { DefaultTheme } from 'react-native-paper'
+
 const common = {
   white: '#fff',
   transparent: 'transparent',
-  black: '#000',
-  blue: 'blue',
-  placeHolderGray: 'rgba(216, 216, 216, 0.6)',
-  borderInputError: '#ff0000',
-  green: 'green',
-  red: 'red',
-  periwinkle: '#CBD9FF',
-  pattensBlue: '#DBEFFF',
-  mandysPink: '#F0ADB4',
-  bananaMania: '#FBE4AD',
-  iceCold: '#BAF7E3',
-  lightGray: '#F8F8F8',
-  purpure: '#7B80FF',
-  manatee: '#9496A6',
-  frenchGray: '#C4C4C4',
+}
+
+const fonts = {
+  defaultFont: 'Montserrat-Regular',
+  boldFont: 'Montserrat-SemiBold',
+  thinFont: 'Montserrat-Light',
 }
 
 const Light = {
   colors: {
     ...common,
-    primary: '#1B3372',
-    secondary: '#6C93F9',
-    periwinkle: '#B0C4FA',
+    primary: '#EE1B54',
+    secondary: '#2E75B6',
+    black: '#000000',
+    white: '#FFFFFF',
     textPrimary: '#000000',
     textSecondary: '#607d8b',
-    doneOderColor: '#35D287',
-    deliverOderColor: '#F5B210',
-    lineSecondary: '#E3E5FD',
-    collectionOrder: '#DDCDF4',
+    iron: '#DADCE0',
+    jacksonsPurple: '#1c348c',
+    blackRussian: '#010002',
+    athensGray: '#E4E6EB',
+    tundora: '#484848',
+    fiord: '#475574',
+    meteorite: '#2A226A',
+    shark: '#1E1E21',
+    alabaster: '#FAFAFA',
+    steelBlue: '#4886BF',
+    mauve: '#F194FF',
   },
+  fonts,
 }
 
 const Dark = {
@@ -40,12 +42,17 @@ const Dark = {
     secondary: '#607d8b',
     textPrimary: '#607d8b',
     textSecondary: '#607d8b',
-    doneOderColor: '#35D287',
-    deliverOderColor: '#F5B210',
-    lineSecondary: '#E3E5FD',
+  },
+  fonts,
+}
+
+export const RNPThemes = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#1B9CFC',
   },
 }
 
 export const Themes = Light
-
-export const ThemesDark = Dark
+export const ThemeDark = Dark

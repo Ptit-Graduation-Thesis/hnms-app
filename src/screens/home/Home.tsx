@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { Header, Layout } from '@/common'
-import HomeComponent from '@/screens/components/home/Home'
+import { Layout } from '@/common'
+import HomeComponent from './components/Home'
 
 const Home = () => (
   <Layout>
-    <Header i18nText="home.title" />
     <HomeComponent />
   </Layout>
 )

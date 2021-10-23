@@ -2,10 +2,18 @@ export type AppStateType = {
   user?: {
     id: number
     fullName: string
-    email: string
-    avatar: string
+    phoneNumber: string
+    address: string
+    credentialId: string
+    dob: string
+    salary: number
+    role: {
+      id: number
+      name: string
+    }
   }
   accessToken?: string
+  expiresIn?: string
 }
 
 export type AppActionType = {

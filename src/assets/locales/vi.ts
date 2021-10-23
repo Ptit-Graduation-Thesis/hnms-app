@@ -1,19 +1,20 @@
 export default {
+  auth: {
+    username: 'Tên đăng nhập',
+    password: 'Mật khẩu',
+    login: 'Đăng nhập',
+  },
   home: {
     title: 'Màn hình chính',
-    userDetail: 'Chi tiết',
   },
   chat: {
     title: 'Nhắn tin',
   },
-  setting: {
+  profile: {
     title: 'Cài đặt',
     changeLanguage: 'Thay đổi ngôn ngữ',
-    aboutMe: 'Thông tin về tôi',
+    editProfile: 'Sửa thông tin cá nhân',
     logout: 'Đăng xuất',
     version: 'Phiên bản',
-    resource: {
-      title: 'Phương pháp',
-    },
   },
 }

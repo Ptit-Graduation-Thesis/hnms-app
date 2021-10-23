@@ -2,14 +2,8 @@ import { createNavigationContainerRef, StackActions } from '@react-navigation/na
 
 export const navigationRef = createNavigationContainerRef()
 
-export function navigate(name: string, params = {}): void {
-  navigationRef.navigate(name as never, params as never)
-}
+export const navigate = (name: string, params = {}) => navigationRef.navigate(name as never, params as never)
 
-export function goBack(): void {
-  navigationRef.goBack()
-}
+export const goBack = () => navigationRef.goBack()
 
-export function navigateReplace(name: string, params = {}): void {
-  navigationRef.dispatch(StackActions.replace(name, params))
-}
+export const navigateReplace = (name: string, params = {}) => navigationRef.dispatch(StackActions.replace(name, params))

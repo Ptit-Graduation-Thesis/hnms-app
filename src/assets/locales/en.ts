@@ -1,19 +1,20 @@
 export default {
+  auth: {
+    username: 'Username',
+    password: 'Password',
+    login: 'Login',
+  },
   home: {
     title: 'Home',
-    userDetail: 'Detail',
   },
   chat: {
     title: 'Chat',
   },
-  setting: {
-    title: 'Setting',
+  profile: {
+    title: 'Profile',
     changeLanguage: 'Change language',
-    aboutMe: 'About me',
+    editProfile: 'Edit profile',
     logout: 'Logout',
     version: 'Version',
-    resource: {
-      title: 'Resource',
-    },
   },
 }

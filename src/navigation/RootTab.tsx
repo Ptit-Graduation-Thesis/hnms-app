@@ -8,7 +8,7 @@ import Assets from '@/assets'
 import ROUTER from '@/navigation/config/router'
 import HomeStack from '@/navigation/stacks/HomeStack'
 import ChatStack from '@/navigation/stacks/ChatStack'
-import SettingStack from '@/navigation/stacks/SettingStack'
+import ProfileStack from '@/navigation/stacks/ProfileStack'
 import Size from '@/assets/size'
 
 type TabStackType = {
@@ -42,10 +42,10 @@ const ArrayTabs: TabStackType[] = [
   },
   {
     key: 3,
-    name: ROUTER.APP.SETTING.TAB,
-    component: SettingStack,
-    tabBarLabel: 'setting.title',
-    tabBarIcon: ({ color }) => <TabBarIcon color={color} source={Assets.icon.setting} />,
+    name: ROUTER.APP.PROFILE.TAB,
+    component: ProfileStack,
+    tabBarLabel: 'profile.title',
+    tabBarIcon: ({ color }) => <TabBarIcon color={color} source={Assets.icon.profile} />,
   },
 ]
 
@@ -69,8 +69,8 @@ const RootTab = () => {
 
 const styles = ScaledSheet.create({
   icon: {
-    width: 25,
-    height: 25,
+    width: '20@s',
+    height: '20@s',
   },
   tabBarLabelStyle: {
     fontWeight: 'bold',
