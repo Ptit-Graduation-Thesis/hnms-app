@@ -1,6 +1,6 @@
 import { Dimensions, Platform } from 'react-native'
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
-import { scale, verticalScale } from 'react-native-size-matters'
+import { verticalScale } from 'react-native-size-matters'
 
 const { width, height } = Dimensions.get('window')
 
@@ -24,7 +24,6 @@ const Size = {
     button: 4,
   },
   navBarHeight: Platform.OS === 'ios' ? 54 : 66,
-  tabBarHeight: scale(40),
   screenHeight: width < height ? height : width,
   screenWidth: width < height ? width : height,
   safeBottomPadding,

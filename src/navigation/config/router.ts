@@ -8,6 +8,7 @@ const ROUTER = {
     CHAT: {
       TAB: 'CHAT TAB',
       ROOT: 'CHAT ROOT',
+      ROOM: 'ROOM',
     },
     PROFILE: {
       TAB: 'PROFILE TAB',

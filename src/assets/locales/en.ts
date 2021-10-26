@@ -1,4 +1,7 @@
 export default {
+  common: {
+    cancel: 'Cancel',
+  },
   auth: {
     username: 'Username',
     password: 'Password',
@@ -9,6 +12,7 @@ export default {
   },
   chat: {
     title: 'Chat',
+    search: 'Search',
   },
   profile: {
     title: 'Profile',

@@ -1,14 +1,15 @@
 import React from 'react'
 import { View } from 'react-native'
 import { useQueryClient } from 'react-query'
-import { Avatar, List, Title } from 'react-native-paper'
+import { List, Title } from 'react-native-paper'
 import { scale, ScaledSheet } from 'react-native-size-matters'
 import { useTranslation } from 'react-i18next'
 import { ScrollView } from 'react-native-gesture-handler'
+import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
 
 import { useAppContext } from '@/contexts/app.context'
 import { removeContext } from '@/contexts/app.action'
-import { Touchable } from '@/common'
+import { AvatarText, Touchable } from '@/common'
 import Assets from '@/assets'
 
 const Setting = () => {
@@ -29,7 +30,7 @@ const Setting = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.avatar}>
-        <Avatar.Image source={Assets.icon.avatar} size={scale(100)} />
+        <AvatarText label={state.user?.fullName || ''} size={scale(100)} />
         <View style={styles.userInfo}>
           <Title>{state.user?.fullName}</Title>
         </View>
@@ -82,6 +83,7 @@ const Setting = () => {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
+    paddingTop: StaticSafeAreaInsets.safeAreaInsetsTop,
   },
   avatar: {
     alignItems: 'center',

@@ -1,7 +1,5 @@
 export enum QUERY_KEY {
-  ME = 'me',
-  USERS = 'users',
-  TODOS = 'todos',
-  RESOURCE = 'resource',
-  DETAIL_USER = 'detail user',
+  ROOMS = 'rooms',
+  SEARCH_USER = 'search user',
+  MESSAGES = 'messages',
 }

@@ -11,6 +11,8 @@ const Assets = Object.freeze({
     profile: require('./icons/profile.png'),
     avatar: require('./icons/avatar.png'),
     editProfile: require('./icons/edit-profile.png'),
+    search: require('./icons/search.png'),
+    clear: require('./icons/clear.png'),
   },
   image: {
     logoSquares: require('./images/logo-squares.png'),

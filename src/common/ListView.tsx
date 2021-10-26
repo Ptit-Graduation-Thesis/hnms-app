@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { FlatList, RefreshControl, FlatListProps } from 'react-native'
 import { Divider, ActivityIndicator } from 'react-native-paper'
 import { InfiniteData } from 'react-query'
@@ -26,10 +26,10 @@ const ListViewComponent: React.FC<IListView> = ({
 }) => {
   const [allData, setData] = React.useState<any[]>([])
 
-  const renderFooter = () => {
+  const renderFooter = useCallback(() => {
     if (!isFetchingNextPage) return null
     return <ActivityIndicator color="#000" />
-  }
+  }, [isFetchingNextPage])
 
   React.useEffect(() => {
     if (queryData) {

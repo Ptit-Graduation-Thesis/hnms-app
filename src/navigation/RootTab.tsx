@@ -9,7 +9,6 @@ import ROUTER from '@/navigation/config/router'
 import HomeStack from '@/navigation/stacks/HomeStack'
 import ChatStack from '@/navigation/stacks/ChatStack'
 import ProfileStack from '@/navigation/stacks/ProfileStack'
-import Size from '@/assets/size'
 
 type TabStackType = {
   key: number
@@ -57,7 +56,6 @@ const RootTab = () => {
         headerShown: false,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         tabBarActiveTintColor: '#000',
-        tabBarStyle: { height: Size.tabBarHeight },
       }}
     >
       {ArrayTabs.map((tab) => (

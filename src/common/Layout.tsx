@@ -1,14 +1,8 @@
 import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { View } from 'react-native'
 
-type LayoutProps = {
-  children: React.ReactNode
-}
-
-export const Layout: React.FC<LayoutProps> = ({ children }) => (
-  <SafeAreaView style={styles.container}>{children}</SafeAreaView>
-)
+export const Layout: React.FC = ({ children }) => <View style={styles.container}>{children}</View>
 
 const styles = ScaledSheet.create({
   container: {
