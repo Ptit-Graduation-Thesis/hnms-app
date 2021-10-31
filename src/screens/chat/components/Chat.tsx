@@ -1,5 +1,5 @@
 import React from 'react'
-import { Keyboard, TouchableWithoutFeedback, View } from 'react-native'
+import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
 import { scale, ScaledSheet, verticalScale } from 'react-native-size-matters'
 import { useTranslation } from 'react-i18next'
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
@@ -54,7 +54,7 @@ const Chat = () => {
   )
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <View style={styles.container}>
         <OverlayLoading visible={isLoading} />
 
@@ -85,7 +85,7 @@ const Chat = () => {
           />
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   )
 }
 
@@ -95,16 +95,12 @@ const styles = ScaledSheet.create({
   },
   header: {
     backgroundColor: 'white',
-    paddingTop: StaticSafeAreaInsets.safeAreaInsetsTop + scale(10),
+    paddingTop: StaticSafeAreaInsets.safeAreaInsetsTop + scale(13),
     paddingHorizontal: '10@s',
     paddingBottom: '10@s',
     borderBottomWidth: 1,
     borderBottomColor: '#dcdde1',
     flexDirection: 'row',
-  },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
   userView: {
     paddingHorizontal: '20@s',

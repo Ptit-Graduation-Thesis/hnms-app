@@ -11,7 +11,7 @@ import { useSocket } from '@/hooks'
 import Assets from '@/assets'
 import { SocketEvent } from '@/enums/socket-event'
 import { useAppContext } from '@/contexts/app.context'
-import { useMessages } from '@/data/useMessages'
+import { useMessages } from '@/data'
 
 interface IRoute extends RouteProp<ParamListBase> {
   params: {
@@ -126,7 +126,7 @@ const styles = ScaledSheet.create({
     elevation: 1,
   },
   title: {
-    fontSize: 20,
+    fontSize: '18@vs',
     fontWeight: 'bold',
   },
 })

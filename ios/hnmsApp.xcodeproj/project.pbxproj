@@ -11,10 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A02159372724FAC4005B9C9C /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A02159342724FAC4005B9C9C /* Montserrat-Light.ttf */; };
 		A02159382724FAC4005B9C9C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A02159352724FAC4005B9C9C /* Montserrat-SemiBold.ttf */; };
 		A02159392724FAC4005B9C9C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A02159362724FAC4005B9C9C /* Montserrat-Regular.ttf */; };
+		A0A8E845272A5A84004A21CD /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A8E843272A530C004A21CD /* libswiftWebKit.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C00D6A46B4C21CFFFBC296CA /* libPods-hnmsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C5EED6974FC6A7775C0B1A /* libPods-hnmsApp.a */; };
 		FD853E8370EDCA74839445CB /* libPods-hnmsApp-hnmsAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC190F01A2E5D02865F629C7 /* libPods-hnmsApp-hnmsAppTests.a */; };
 /* End PBXBuildFile section */
@@ -42,13 +42,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = hnmsApp/main.m; sourceTree = "<group>"; };
 		1E40FF782E58C1A92D907C67 /* Pods-hnmsApp-hnmsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hnmsApp-hnmsAppTests.debug.xcconfig"; path = "Target Support Files/Pods-hnmsApp-hnmsAppTests/Pods-hnmsApp-hnmsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		45C5EED6974FC6A7775C0B1A /* libPods-hnmsApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hnmsApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = hnmsApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ABF3D794EDEC1600C210781 /* Pods-hnmsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hnmsApp.release.xcconfig"; path = "Target Support Files/Pods-hnmsApp/Pods-hnmsApp.release.xcconfig"; sourceTree = "<group>"; };
 		93AE5AE2E2A2C76EE540D87B /* Pods-hnmsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hnmsApp.debug.xcconfig"; path = "Target Support Files/Pods-hnmsApp/Pods-hnmsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A021592B2724F48F005B9C9C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A02159342724FAC4005B9C9C /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		A02159352724FAC4005B9C9C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		A02159362724FAC4005B9C9C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		A0A8E843272A530C004A21CD /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		BC190F01A2E5D02865F629C7 /* libPods-hnmsApp-hnmsAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hnmsApp-hnmsAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -66,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A8E845272A5A84004A21CD /* libswiftWebKit.tbd in Frameworks */,
 				C00D6A46B4C21CFFFBC296CA /* libPods-hnmsApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,7 +99,6 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = hnmsApp;
@@ -118,6 +118,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0A8E843272A530C004A21CD /* libswiftWebKit.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				45C5EED6974FC6A7775C0B1A /* libPods-hnmsApp.a */,
 				BC190F01A2E5D02865F629C7 /* libPods-hnmsApp-hnmsAppTests.a */,
@@ -265,7 +266,6 @@
 				A02159372724FAC4005B9C9C /* Montserrat-Light.ttf in Resources */,
 				A02159382724FAC4005B9C9C /* Montserrat-SemiBold.ttf in Resources */,
 				A02159392724FAC4005B9C9C /* Montserrat-Regular.ttf in Resources */,
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,9 +530,14 @@
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -559,9 +564,14 @@
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -625,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -684,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

@@ -13,6 +13,8 @@ const ROUTER = {
     PROFILE: {
       TAB: 'PROFILE TAB',
       ROOT: 'PROFILE ROOT',
+      DETAIL_PROFILE: 'DETAI PROFILE',
+      EDIT_PROFILE: 'EDIT PROFILE',
     },
   },
 }

@@ -8,24 +8,28 @@ import { ScrollView } from 'react-native-gesture-handler'
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
 
 import { useAppContext } from '@/contexts/app.context'
-import { removeContext } from '@/contexts/app.action'
+import { changeLanguage, removeContext } from '@/contexts/app.action'
 import { AvatarText, Touchable } from '@/common'
 import Assets from '@/assets'
+import { navigate } from '@/navigation/NavigationService'
+import ROUTER from '@/navigation/config/router'
 
 const Setting = () => {
   const { state, dispatch } = useAppContext()
   const queryClient = useQueryClient()
   const { i18n, t } = useTranslation()
 
-  const logout = () => {
+  const logout = React.useCallback(() => {
     dispatch(removeContext())
     queryClient.getQueryCache().clear()
-  }
+  }, [dispatch, queryClient])
 
-  const changeLanguage = () => {
+  const toggleLanguage = React.useCallback(() => {
     const language = i18n.language === 'en' ? 'vi' : 'en'
-    i18n.changeLanguage(language)
-  }
+    dispatch(changeLanguage(language))
+  }, [dispatch, i18n.language])
+
+  const gotoEditProfile = React.useCallback(() => navigate(ROUTER.APP.PROFILE.EDIT_PROFILE), [])
 
   return (
     <ScrollView style={styles.container}>
@@ -39,21 +43,21 @@ const Setting = () => {
       <View style={styles.actionView}>
         <View style={styles.bgWhite}>
           <View style={styles.borderTop} />
-          <Touchable style={styles.action} onPress={changeLanguage}>
-            <List.Item
-              style={styles.noPadding}
-              title={t('profile.changeLanguage')}
-              titleStyle={styles.actionText}
-              left={() => <List.Icon icon={Assets.icon.language} />}
-            />
-          </Touchable>
-          <View style={styles.borderMiddle} />
-          <Touchable style={styles.action} onPress={() => {}}>
+          <Touchable style={styles.action} onPress={gotoEditProfile}>
             <List.Item
               style={styles.noPadding}
               title={t('profile.editProfile')}
               titleStyle={styles.actionText}
               left={() => <List.Icon icon={Assets.icon.editProfile} />}
+            />
+          </Touchable>
+          <View style={styles.borderMiddle} />
+          <Touchable style={styles.action} onPress={toggleLanguage}>
+            <List.Item
+              style={styles.noPadding}
+              title={t('profile.changeLanguage')}
+              titleStyle={styles.actionText}
+              left={() => <List.Icon icon={Assets.icon.language} />}
             />
           </Touchable>
           <View style={styles.borderMiddle} />

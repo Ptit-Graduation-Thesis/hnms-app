@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import socketIO, { Socket } from 'socket.io-client'
 import Config from 'react-native-config'
-
 import { Alert } from 'react-native'
+import { useTranslation } from 'react-i18next'
+
 import { useAppContext } from '@/contexts/app.context'
 import { SocketEvent } from '@/enums/socket-event'
 
 export const useSocket = () => {
   const { state } = useAppContext()
+  const { t } = useTranslation()
+
   const [socket, setSoket] = useState<Socket | null>(null)
 
   useEffect(() => {
@@ -18,7 +21,7 @@ export const useSocket = () => {
 
     newSocket.on('connect', () => {
       newSocket?.emit(SocketEvent.AUTHENTICATE, { token: state.accessToken })
-      newSocket.on(SocketEvent.UNAUTHORIZED, () => Alert.alert('Socket unauthorized'))
+      newSocket.on(SocketEvent.UNAUTHORIZED, () => Alert.alert(t('alert.socketError')))
       setSoket(newSocket)
     })
 
@@ -27,7 +30,7 @@ export const useSocket = () => {
       newSocket?.off('connect')
       newSocket.disconnect()
     }
-  }, [state.accessToken])
+  }, [state.accessToken, t])
 
   return socket
 }

@@ -4,6 +4,7 @@ import ReactNativeModal from 'react-native-modal'
 import { ScaledSheet, verticalScale } from 'react-native-size-matters'
 import { Title } from 'react-native-paper'
 import { InfiniteData, QueryObserverResult, RefetchOptions, RefetchQueryFilters, useMutation } from 'react-query'
+import { useTranslation } from 'react-i18next'
 
 import { useSearchUser } from '@/data'
 import { AvatarText, ListView, OverlayLoading, Touchable } from '@/common'
@@ -21,6 +22,7 @@ type ModalProps = {
 }
 
 const ModalSearchUser: React.FC<ModalProps> = ({ visible, keyword, setVisible, refetchRoom }) => {
+  const { t } = useTranslation()
   const { data: users, isLoading, isFetching, isFetchingNextPage, fetchNextPage, refetch } = useSearchUser(keyword)
 
   const { mutate: enterRoom, isLoading: enterRoomLoading } = useMutation(
@@ -31,7 +33,7 @@ const ModalSearchUser: React.FC<ModalProps> = ({ visible, keyword, setVisible, r
         setVisible(false)
         navigate(ROUTER.APP.CHAT.ROOM, { roomId: res.data.roomId, otherUserName: res.data.otherUserName })
       },
-      onError: () => Alert.alert('Error', "Can't enter room"),
+      onError: () => Alert.alert(t('alert.enterRoomFail')),
     },
   )
 
@@ -53,7 +55,7 @@ const ModalSearchUser: React.FC<ModalProps> = ({ visible, keyword, setVisible, r
       coverScreen={false}
       style={styles.modal}
       animationInTiming={500}
-      animationOutTiming={1000}
+      animationOutTiming={500}
     >
       <View style={styles.modalContaoner}>
         <OverlayLoading visible={enterRoomLoading} />

@@ -1,12 +1,7 @@
 import React from 'react'
 
-import { Layout } from '@/common'
 import LoginComponent from './components/Login'
 
-const Login = () => (
-  <Layout>
-    <LoginComponent />
-  </Layout>
-)
+const Login = () => <LoginComponent />
 
 export default Login

@@ -13,6 +13,7 @@ const Assets = Object.freeze({
     editProfile: require('./icons/edit-profile.png'),
     search: require('./icons/search.png'),
     clear: require('./icons/clear.png'),
+    edit: require('./icons/editing.png'),
   },
   image: {
     logoSquares: require('./images/logo-squares.png'),

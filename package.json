@@ -7,8 +7,8 @@
   "scripts": {
     "start": "react-native start",
     "eject": "rm -rf ios && rm -rf android && react-native eject",
-    "link": "react-native link",
-    "pod-install": "cd ios && pod install",
+    "lib:fix": "cd scripts && sh ./fix-lib.sh && cd .. && react-native link && cd ios && pod install",
+    "pod:install": "cd ios && pod install",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "open-xcode": "open -a Xcode ./ios/hnmsApp.xcworkspace",
@@ -30,7 +30,9 @@
     "codepush:android-product": "appcenter codepush release-react -a <ownerName>/<appName> -d Production -t 1.0.0"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.2",
     "@react-native-async-storage/async-storage": "^1.15.6",
+    "@react-native-community/datetimepicker": "^3.5.2",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/stack": "^6.0.7",
@@ -39,6 +41,7 @@
     "i18next": "^20.4.0",
     "lodash.debounce": "^4.0.8",
     "react": "17.0.2",
+    "react-hook-form": "^7.18.0",
     "react-i18next": "^11.11.4",
     "react-native": "0.65.1",
     "react-native-config": "^1.4.4",
@@ -46,6 +49,7 @@
     "react-native-gifted-chat": "^0.16.3",
     "react-native-loading-spinner-overlay": "^2.0.0",
     "react-native-modal": "^13.0.0",
+    "react-native-modalize": "^2.0.10",
     "react-native-paper": "^4.9.2",
     "react-native-safe-area-context": "^3.3.0",
     "react-native-screens": "^3.5.0",
@@ -53,7 +57,8 @@
     "react-native-static-safe-area-insets": "^2.1.1",
     "react-native-url-polyfill": "^1.3.0",
     "react-query": "^3.21.0",
-    "socket.io-client": "^4.3.2"
+    "socket.io-client": "^4.3.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

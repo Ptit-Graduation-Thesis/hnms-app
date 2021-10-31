@@ -1,5 +1,4 @@
 import React from 'react'
-import { LogBox } from 'react-native'
 import 'react-native-gesture-handler'
 import 'react-native-url-polyfill/auto'
 import { NavigationContainer } from '@react-navigation/native'
@@ -13,8 +12,6 @@ import { AppContextProvider } from '@/contexts/app.context'
 import { RNPThemes } from '@/assets/themes'
 
 const queryClient = new QueryClient()
-
-LogBox.ignoreLogs(['Setting a timer'])
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

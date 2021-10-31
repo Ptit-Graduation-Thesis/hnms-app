@@ -18,7 +18,7 @@ const AppContext = React.createContext<ContextType>({
 
 export const useAppContext = () => React.useContext(AppContext)
 
-export const getAppContext = async (callback = (state: AppStateType): any => state) => {
+export const getAppContext = async (callback = (state: AppStateType) => state) => {
   const appStateString = await getItem(Config.PERSIST_KEY)
   const appState = JSON.parse(appStateString) as AppStateType
   return callback(appState)
