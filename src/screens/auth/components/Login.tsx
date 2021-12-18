@@ -15,7 +15,7 @@ import { api } from '@/utils/axios'
 import { updateContext } from '@/contexts/app.action'
 import { OverlayLoading, Text, Touchable } from '@/common'
 import Assets from '@/assets'
-import { LoginType } from '@/types/login.types'
+import { LoginType } from '@/types/login.type'
 
 const schema = yup
   .object({

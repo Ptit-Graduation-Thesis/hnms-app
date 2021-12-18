@@ -8,6 +8,7 @@ export default {
     required: '{{field}} is a required field',
     min: '{{field}} must be at least {{length}} characters',
     match: 'Please make sure your passwords match',
+    invalid: '{{field}} is not valid',
   },
   alert: {
     editProfileSuccess: 'Your profile was successfully edited!',
@@ -20,8 +21,8 @@ export default {
     password: 'Password',
     login: 'Login',
   },
-  home: {
-    title: 'Home',
+  item: {
+    title: 'Items',
   },
   chat: {
     title: 'Chat',
@@ -40,5 +41,8 @@ export default {
     phoneNumber: 'Phone number',
     address: 'Address',
     dob: 'Date of birth',
+    credentialId: 'Credential ID',
+    role: 'Role',
+    branch: 'Branch',
   },
 }

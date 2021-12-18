@@ -3,14 +3,14 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import ROUTER from '@/navigation/config/router'
 import navigationConfigs from '@/navigation/config/options'
-import Home from '@/screens/home/Home'
+import Item from '@/screens/item/Item'
 
 const Stack = createStackNavigator()
 
-const HomeStack = () => (
+const ItemStack = () => (
   <Stack.Navigator screenOptions={navigationConfigs}>
-    <Stack.Screen name={ROUTER.APP.HOME.ROOT} component={Home} />
+    <Stack.Screen name={ROUTER.APP.ITEM.ROOT} component={Item} />
   </Stack.Navigator>
 )
 
-export default HomeStack
+export default ItemStack

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 
 import Assets from '@/assets'
 import ROUTER from '@/navigation/config/router'
-import HomeStack from '@/navigation/stacks/HomeStack'
+import ItemStack from '@/navigation/stacks/ItemStack'
 import ChatStack from '@/navigation/stacks/ChatStack'
 import ProfileStack from '@/navigation/stacks/ProfileStack'
 
@@ -27,10 +27,10 @@ const TabBarIcon: React.FC<{ color: string; source: any }> = ({ color, source })
 const ArrayTabs: TabStackType[] = [
   {
     key: 1,
-    name: ROUTER.APP.HOME.TAB,
-    component: HomeStack,
-    tabBarLabel: 'home.title',
-    tabBarIcon: ({ color }) => <TabBarIcon color={color} source={Assets.icon.home} />,
+    name: ROUTER.APP.ITEM.TAB,
+    component: ItemStack,
+    tabBarLabel: 'item.title',
+    tabBarIcon: ({ color }) => <TabBarIcon color={color} source={Assets.icon.item} />,
   },
   {
     key: 2,

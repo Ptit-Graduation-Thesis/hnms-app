@@ -1,9 +1,12 @@
 const ROUTER = {
   APP: {
     ROOT: 'APP ROOT',
-    HOME: {
-      TAB: 'HOME TAB',
-      ROOT: 'HOME ROOT',
+    ITEM: {
+      TAB: 'ITEM TAB',
+      ROOT: 'ITEM ROOT',
+      DETAIL: 'ITEM DETAIL',
+      SELL_ITEM: 'SELL ITEM',
+      IMPORT_ITEM: 'IMPORt ITEM',
     },
     CHAT: {
       TAB: 'CHAT TAB',

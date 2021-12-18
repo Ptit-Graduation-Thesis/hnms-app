@@ -1,4 +1,4 @@
-import { LoginType } from '@/types/login.types'
+import { LoginType } from '@/types/login.type'
 
 export const validateLogin = (loginInfo: LoginType | undefined) => {
   if (!loginInfo) return false

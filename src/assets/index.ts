@@ -14,6 +14,13 @@ const Assets = Object.freeze({
     search: require('./icons/search.png'),
     clear: require('./icons/clear.png'),
     edit: require('./icons/editing.png'),
+    item: require('./icons/item.png'),
+    qrCode: require('./icons/qr-code.png'),
+    plus: require('./icons/plus.png'),
+    import: require('./icons/import.png'),
+    bill: require('./icons/bill.png'),
+    close: require('./icons/close.png'),
+    arrowUp: require('./icons/up-arrow.png'),
   },
   image: {
     logoSquares: require('./images/logo-squares.png'),

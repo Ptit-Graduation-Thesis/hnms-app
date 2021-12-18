@@ -20,6 +20,7 @@ import { formatInputDate } from '@/utils/date'
 import { api } from '@/utils/axios'
 import { updateUser } from '@/contexts/app.action'
 import { ProfileParams } from '@/types/profile.type'
+import { getRoleName } from '@/enums/role-status.enum'
 
 const schema = yup
   .object({
@@ -33,7 +34,10 @@ const schema = yup
         (value) => value === '' || (!!value && value.length >= 6),
       ),
     confirmPassword: yup.string().oneOf([yup.ref('password')], i18next.t('validate.match')),
-    phoneNumber: yup.string().required(i18next.t('validate.required', { field: 'Phone number' })),
+    phoneNumber: yup
+      .string()
+      .matches(/^[+]{0,1}[(]{0,1}[0-9]{1,4}[)]{0,1}[-0-9]*$/, i18next.t('validate.invalid', { field: 'Phone number' }))
+      .required(i18next.t('validate.required', { field: 'Phone number' })),
     address: yup.string().required(i18next.t('validate.required', { field: 'Address' })),
     dob: yup.date().required(i18next.t('validate.required', { field: 'Date of birth' })),
   })
@@ -162,8 +166,20 @@ const EditProfile = () => {
                     </Touchable>
                   )}
                 />
-
                 {errors.dob && <Text text={errors.dob?.message} style={styles.errorText} />}
+                <TextInput
+                  label={t('profile.credentialId')}
+                  style={styles.input}
+                  value={state.user?.credentialId}
+                  disabled
+                />
+                <TextInput
+                  label={t('profile.role')}
+                  style={styles.input}
+                  value={getRoleName(state.user?.role?.id || 0)}
+                  disabled
+                />
+                <TextInput label={t('profile.branch')} style={styles.input} value={state.user?.branch?.name} disabled />
                 <Controller
                   control={control}
                   name="username"

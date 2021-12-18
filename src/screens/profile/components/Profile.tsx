@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 import { useQueryClient } from 'react-query'
-import { List, Title } from 'react-native-paper'
+import { List, Subheading, Title } from 'react-native-paper'
 import { scale, ScaledSheet } from 'react-native-size-matters'
 import { useTranslation } from 'react-i18next'
 import { ScrollView } from 'react-native-gesture-handler'
@@ -37,6 +37,7 @@ const Setting = () => {
         <AvatarText label={state.user?.fullName || ''} size={scale(100)} />
         <View style={styles.userInfo}>
           <Title>{state.user?.fullName}</Title>
+          <Subheading>{state?.user?.branch?.name}</Subheading>
         </View>
       </View>
 

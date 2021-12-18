@@ -1,6 +1,8 @@
 import React from 'react'
 import { Avatar } from 'react-native-paper'
 
+import { nonAccentVietnamese } from '@/utils/helper'
+
 type AvatarProps = {
   label: string
   size: number
@@ -9,7 +11,12 @@ type AvatarProps = {
 const AvatarTextComponent: React.FC<AvatarProps> = ({ label, size }) => {
   return (
     <Avatar.Text
-      label={label.match(/\b(\w)/g)?.join('') || ''}
+      label={
+        nonAccentVietnamese(label)
+          .match(/\b(\w)/g)
+          ?.join('')
+          ?.toUpperCase() || ''
+      }
       size={size}
       color={'white'}
       theme={{ colors: { primary: 'rgb(44, 63, 80)' } }}

@@ -24,7 +24,7 @@ const TextComponent: React.FC<TextProps | I18nTextProps> = ({ text, i18nText, i1
   const { t } = useTranslation()
 
   return (
-    <RNText style={[{ color }, styles.text, style]} {...props}>
+    <RNText style={[styles.text, { color: color || '#2C3A47' }, style]} {...props}>
       {text || t(i18nText || '', i18nValue)}
     </RNText>
   )
