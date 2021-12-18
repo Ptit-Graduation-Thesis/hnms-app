@@ -11,17 +11,19 @@ import Assets from '@/assets'
 import ModalSearchItem from './ModalSearchItem'
 import { OverlayLoading, Text, Touchable } from '@/common'
 import { formatMoney } from '@/utils/helper'
-import { CustomerType, SellItemType } from '@/types/item.type'
+import { CustomerType, ItemType } from '@/types/item.type'
 import ModalSelectCustomer from './ModalSelectCustomer'
 import ModalCreateCustomer from './ModalCreateCustomer'
 import { api } from '@/utils/axios'
 import { QUERY_KEY } from '@/data'
+import ModalQrScan from './ModalQrScan'
 
 const SellItem = () => {
   const [modalItemVisible, setModalItemVisible] = React.useState(false)
   const [modalCustomerVisible, setModalCustomerVisible] = React.useState(false)
   const [modalCreateCustomerVisible, setModalCreateCustomerVisible] = React.useState(false)
-  const [items, setItems] = React.useState<SellItemType[]>([])
+  const [modalScanQrVisible, setModalScanQrVisible] = React.useState(false)
+  const [items, setItems] = React.useState<ItemType[]>([])
   const [customer, setCustomer] = React.useState<CustomerType>()
 
   const queryClient = useQueryClient()
@@ -40,7 +42,7 @@ const SellItem = () => {
     [items],
   )
 
-  const onSelectItem = React.useCallback((item: SellItemType) => {
+  const onSelectItem = React.useCallback((item: ItemType) => {
     setItems((old) => {
       const newItems = [...old]
       const itemIndex = newItems.findIndex((cur) => item.id === cur.id)
@@ -91,7 +93,7 @@ const SellItem = () => {
         <Appbar.Action icon={Assets.icon.leftArrow} onPress={goBack} />
         <Appbar.Content title="Sell item" titleStyle={styles.title} />
         <Appbar.Action icon={Assets.icon.search} onPress={() => setModalItemVisible(true)} />
-        <Appbar.Action icon={Assets.icon.qrCode} />
+        <Appbar.Action icon={Assets.icon.qrCode} onPress={() => setModalScanQrVisible(true)} />
       </Appbar.Header>
       <View style={styles.content}>
         <ScrollView style={styles.itemSell}>
@@ -136,9 +138,13 @@ const SellItem = () => {
             </View>
           </View>
           {customer ? (
-            <Touchable style={styles.sell} onPress={onConfirm}>
-              <Text text="Confirm" style={styles.btnLabel} />
-            </Touchable>
+            <>
+              {!!items.length && (
+                <Touchable style={styles.sell} onPress={onConfirm}>
+                  <Text text="Confirm" style={styles.btnLabel} />
+                </Touchable>
+              )}
+            </>
           ) : (
             <Touchable style={styles.selectCustomer} onPress={() => setModalCustomerVisible(true)}>
               <Text text="Select customer" style={styles.btnLabel} />
@@ -157,6 +163,11 @@ const SellItem = () => {
         visible={modalCreateCustomerVisible}
         setVisible={setModalCreateCustomerVisible}
         setCustomer={setCustomer}
+      />
+      <ModalQrScan
+        visible={modalScanQrVisible}
+        setVisible={setModalScanQrVisible}
+        onRead={(item) => onSelectItem(item)}
       />
     </View>
   )

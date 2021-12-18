@@ -544,7 +544,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hiunguyn.hnms.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = hiunguyn.hnms.prod;
 				PRODUCT_NAME = hnmsApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -578,7 +578,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hiunguyn.hnms.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = hiunguyn.hnms.prod;
 				PRODUCT_NAME = hnmsApp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

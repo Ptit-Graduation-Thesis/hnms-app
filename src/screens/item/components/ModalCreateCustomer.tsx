@@ -10,8 +10,8 @@ import * as yup from 'yup'
 import i18next from 'i18next'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import { useMutation, useQueryClient } from 'react-query'
-
 import { AxiosError } from 'axios'
+
 import { OverlayLoading, Text, Touchable } from '@/common'
 import { formatInputDate } from '@/utils/date'
 import { api } from '@/utils/axios'
@@ -73,7 +73,7 @@ const ModalCreateCustomer: React.FC<ModalCreateCustomerProps> = ({ visible, setV
 
   return (
     <>
-      <ReactNativeModal isVisible={visible} style={{ margin: 0 }}>
+      <ReactNativeModal isVisible={visible} style={styles.modal}>
         <View style={styles.modalContainer}>
           <OverlayLoading visible={isLoading} />
           <Text text="Create customer" style={styles.header} />
@@ -167,6 +167,9 @@ const ModalCreateCustomer: React.FC<ModalCreateCustomerProps> = ({ visible, setV
 }
 
 const styles = ScaledSheet.create({
+  modal: {
+    margin: 0,
+  },
   modalContainer: {
     backgroundColor: 'white',
     borderRadius: '10@s',

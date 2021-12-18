@@ -8,10 +8,12 @@ import debounce from 'lodash.debounce'
 
 import { ListView, OverlayLoading, Touchable } from '@/common'
 import Assets from '@/assets'
-import { useItems } from '@/data'
+import { useItems, useProfile } from '@/data'
 import { formatMoney } from '@/utils/helper'
 import { navigate } from '@/navigation/NavigationService'
 import ROUTER from '@/navigation/config/router'
+import ModalQrScan from './ModalQrScan'
+import { RoleStatus } from '@/enums/role-status.enum'
 
 const Item: React.FC = () => {
   const { t } = useTranslation()
@@ -19,8 +21,10 @@ const Item: React.FC = () => {
   const [search, setSearch] = React.useState('')
   const [keyword, setKeyword] = React.useState('')
   const [isOpen, setOpen] = React.useState(false)
+  const [modalScanQrVisible, setModalScanQrVisible] = React.useState(false)
 
   const { data: items, isLoading, isFetching, isFetchingNextPage, fetchNextPage, refetch } = useItems(keyword)
+  const { data: profile } = useProfile()
 
   const gotoDetail = React.useCallback((id: number) => navigate(ROUTER.APP.ITEM.DETAIL, { id }), [])
 
@@ -46,6 +50,35 @@ const Item: React.FC = () => {
     },
     [handleSearch],
   )
+
+  const actions = React.useMemo(() => {
+    let result: any[] = []
+    switch (profile?.roleId) {
+      case RoleStatus.ADMIN:
+        result = [
+          ...result,
+          { icon: Assets.icon.bill, label: 'Sell', onPress: () => navigate(ROUTER.APP.ITEM.SELL_ITEM) },
+          { icon: Assets.icon.import, label: 'Import', onPress: () => navigate(ROUTER.APP.ITEM.IMPORT_ITEM) },
+        ]
+        break
+      case RoleStatus.ACCOUNTANT:
+        result = [
+          ...result,
+          { icon: Assets.icon.import, label: 'Import', onPress: () => navigate(ROUTER.APP.ITEM.IMPORT_ITEM) },
+        ]
+        break
+      case RoleStatus.SALE_EMPLOYEE:
+        result = [
+          ...result,
+          { icon: Assets.icon.bill, label: 'Sell', onPress: () => navigate(ROUTER.APP.ITEM.SELL_ITEM) },
+        ]
+        break
+
+      default:
+        break
+    }
+    return [...result, { icon: Assets.icon.qrCode, label: 'Qr scann', onPress: () => setModalScanQrVisible(true) }]
+  }, [profile?.roleId])
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -79,12 +112,13 @@ const Item: React.FC = () => {
             fabStyle={styles.fab}
             open={isOpen}
             icon={isOpen ? Assets.icon.close : Assets.icon.arrowUp}
-            actions={[
-              { icon: Assets.icon.bill, label: 'Sell', onPress: () => navigate(ROUTER.APP.ITEM.SELL_ITEM) },
-              { icon: Assets.icon.import, label: 'Import', onPress: () => navigate(ROUTER.APP.ITEM.IMPORT_ITEM) },
-              { icon: Assets.icon.qrCode, label: 'Qr scann', onPress: () => {} },
-            ]}
+            actions={actions}
             onStateChange={({ open }) => setOpen(open)}
+          />
+          <ModalQrScan
+            visible={modalScanQrVisible}
+            setVisible={setModalScanQrVisible}
+            onRead={(item) => gotoDetail(item.id)}
           />
         </View>
       </TouchableWithoutFeedback>
