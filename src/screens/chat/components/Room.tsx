@@ -81,9 +81,9 @@ const Room = () => {
 
   React.useEffect(() => {
     socket?.emit(SocketEvent.JOIN_ROOM, { roomId: route.params.roomId })
-    socket?.on(SocketEvent.CLIENT_RECIEPT, (payload) =>
-      setMessages((previousMessages) => GiftedChat.append(previousMessages, [payload])),
-    )
+    socket?.on(SocketEvent.CLIENT_RECIEPT, (payload) => {
+      setMessages((previousMessages) => GiftedChat.append(previousMessages, [payload]))
+    })
     return () => {
       socket?.off(SocketEvent.CLIENT_RECIEPT)
     }
@@ -97,7 +97,7 @@ const Room = () => {
       </Appbar.Header>
       <GiftedChat
         messages={messages}
-        user={{ _id: state.user?.id || 0 }}
+        user={{ _id: state.user?.id || 0, name: state.user?.fullName }}
         bottomOffset={StaticSafeAreaInsets.safeAreaInsetsBottom}
         onSend={onSend}
         renderAvatarOnTop

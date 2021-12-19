@@ -82,9 +82,10 @@ const SellItem = () => {
   const onConfirm = React.useCallback(() => {
     sellItem({
       customerId: customer?.id,
+      totalPrice,
       items: items.map((item) => ({ itemId: item.id, amount: item.amount })),
     })
-  }, [customer?.id, items, sellItem])
+  }, [customer?.id, items, sellItem, totalPrice])
 
   return (
     <View style={styles.container}>
