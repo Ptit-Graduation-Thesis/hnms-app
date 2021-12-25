@@ -265,7 +265,11 @@ const EditProfile = () => {
             name="dob"
             defaultValue={new Date(state.user?.dob || 0)}
             render={({ field: { onChange, value } }) => (
-              <DateTimePicker value={value} onChange={(_: Event, date: Date | undefined) => onChange(date)} />
+              <DateTimePicker
+                display="spinner"
+                value={value}
+                onChange={(_: Event, date: Date | undefined) => onChange(date)}
+              />
             )}
           />
         </View>

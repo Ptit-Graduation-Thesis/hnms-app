@@ -156,7 +156,11 @@ const ModalCreateCustomer: React.FC<ModalCreateCustomerProps> = ({ visible, setV
               name="dob"
               defaultValue={new Date()}
               render={({ field: { onChange, value } }) => (
-                <DateTimePicker value={value} onChange={(_: Event, date: Date | undefined) => onChange(date)} />
+                <DateTimePicker
+                  display="spinner"
+                  value={value}
+                  onChange={(_: Event, date: Date | undefined) => onChange(date)}
+                />
               )}
             />
           </View>

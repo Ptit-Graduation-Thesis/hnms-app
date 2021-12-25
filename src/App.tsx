@@ -11,7 +11,13 @@ import Navogation from '@/navigation/Navigation'
 import { AppContextProvider } from '@/contexts/app.context'
 import { RNPThemes } from '@/assets/themes'
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+})
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
