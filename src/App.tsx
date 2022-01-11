@@ -5,6 +5,7 @@ import 'react-native-url-polyfill/auto'
 import { NavigationContainer } from '@react-navigation/native'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider as PaperProvider } from 'react-native-paper'
+import CodePush from 'react-native-code-push'
 
 import '@/utils/i18next'
 import { navigationRef } from '@/navigation/NavigationService'
@@ -32,4 +33,10 @@ const App = () => (
   </QueryClientProvider>
 )
 
-export default App
+const CodePushApp = CodePush({
+  updateDialog: CodePush.DEFAULT_UPDATE_DIALOG,
+  installMode: CodePush.InstallMode.IMMEDIATE,
+  checkFrequency: CodePush.CheckFrequency.ON_APP_START,
+})(App)
+
+export default __DEV__ ? App : CodePushApp

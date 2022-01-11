@@ -25,10 +25,10 @@
     "build:aab-product": "rm -rf build && rm -rf android/build && export ENVFILE=.env.production && cd android && ./gradlew clean && ./gradlew bundleProductRelease",
     "codepush:ios-develop": "appcenter codepush release-react -a <ownerName>/<appName> -d Development -t 1.0.0",
     "codepush:ios-staging": "appcenter codepush release-react -a <ownerName>/<appName> -d Staging -t 1.0.0",
-    "codepush:ios-product": "appcenter codepush release-react -a <ownerName>/<appName> -d Production -t 1.0.0",
+    "codepush:ios-product": "appcenter codepush release-react -a HieuBeo/hnms-ios -d Production -t 1.0.0",
     "codepush:android-develop": "appcenter codepush release-react -a <ownerName>/<appName> -d Development -t 1.0.0",
     "codepush:android-staging": "appcenter codepush release-react -a <ownerName>/<appName> -d Staging -t 1.0.0",
-    "codepush:android-product": "appcenter codepush release-react -a <ownerName>/<appName> -d Production -t 1.0.0"
+    "codepush:android-product": "appcenter codepush release-react -a HieuBeo/hnms-android -d Production -t 1.0.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.2",
@@ -46,6 +46,7 @@
     "react-i18next": "^11.11.4",
     "react-native": "0.65.1",
     "react-native-camera": "^4.2.1",
+    "react-native-code-push": "^7.0.4",
     "react-native-config": "^1.4.4",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-gifted-chat": "^0.16.3",
