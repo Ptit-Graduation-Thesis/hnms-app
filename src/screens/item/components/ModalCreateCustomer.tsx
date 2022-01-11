@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, View } from 'react-native'
+import { Alert, Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, View } from 'react-native'
 import ReactNativeModal from 'react-native-modal'
 import { ScaledSheet } from 'react-native-size-matters'
 import { Button, HelperText, TextInput } from 'react-native-paper'
@@ -71,106 +71,119 @@ const ModalCreateCustomer: React.FC<ModalCreateCustomerProps> = ({ visible, setV
     [createCustomer],
   )
 
+  const onModalizeOpen = React.useCallback(() => {
+    modalizeRef.current?.open()
+    Keyboard.dismiss()
+  }, [])
+
   return (
-    <>
-      <ReactNativeModal isVisible={visible} style={styles.modal}>
-        <View style={styles.modalContainer}>
-          <OverlayLoading visible={isLoading} />
-          <Text text="Create customer" style={styles.header} />
-          <Controller
-            control={control}
-            name="fullName"
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                label="Full name"
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                error={!!errors.fullName}
+    <ReactNativeModal isVisible={visible} style={styles.modal}>
+      <KeyboardAvoidingView behavior="padding" style={styles.keyboardAvoidingView}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <>
+            <View style={styles.modalContainer}>
+              <OverlayLoading visible={isLoading} />
+              <Text text="Create customer" style={styles.header} />
+              <Controller
+                control={control}
+                name="fullName"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    label="Full name"
+                    value={value}
+                    onChangeText={onChange}
+                    onBlur={onBlur}
+                    error={!!errors.fullName}
+                  />
+                )}
               />
-            )}
-          />
-          <HelperText type="error" visible={!!errors.fullName}>
-            {errors.fullName?.message}
-          </HelperText>
-          <Controller
-            control={control}
-            name="dob"
-            defaultValue={new Date()}
-            render={() => (
-              <Touchable style={styles.dob} onPress={() => modalizeRef.current?.open()}>
-                <Text text="Date of birth" style={styles.dobTitle} />
-                <Text text={formatInputDate(dob)} style={styles.dobValue} />
-              </Touchable>
-            )}
-          />
-          <HelperText type="error" visible={!!errors.dob}>
-            {errors.dob?.message}
-          </HelperText>
-          <Controller
-            control={control}
-            name="phoneNumber"
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                label="Phone number"
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                error={!!errors.phoneNumber}
+              <HelperText type="error" visible={!!errors.fullName}>
+                {errors.fullName?.message}
+              </HelperText>
+              <Controller
+                control={control}
+                name="dob"
+                defaultValue={new Date()}
+                render={() => (
+                  <Touchable style={styles.dob} onPress={onModalizeOpen}>
+                    <Text text="Date of birth" style={styles.dobTitle} />
+                    <Text text={formatInputDate(dob)} style={styles.dobValue} />
+                  </Touchable>
+                )}
               />
-            )}
-          />
-          <HelperText type="error" visible={!!errors.phoneNumber}>
-            {errors.phoneNumber?.message}
-          </HelperText>
-          <Controller
-            control={control}
-            name="address"
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                label="Address"
-                value={value}
-                onChangeText={onChange}
-                onBlur={onBlur}
-                error={!!errors.address}
+              <HelperText type="error" visible={!!errors.dob}>
+                {errors.dob?.message}
+              </HelperText>
+              <Controller
+                control={control}
+                name="phoneNumber"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    label="Phone number"
+                    value={value}
+                    onChangeText={onChange}
+                    onBlur={onBlur}
+                    error={!!errors.phoneNumber}
+                  />
+                )}
               />
-            )}
-          />
-          <HelperText type="error" visible={!!errors.address}>
-            {errors.address?.message}
-          </HelperText>
-          <View style={styles.btnContainer}>
-            <Button mode="contained" color="white" onPress={onCancel}>
-              Cancel
-            </Button>
-            <Button mode="contained" labelStyle={{ color: 'white' }} onPress={handleSubmit(onSubmit)}>
-              Add
-            </Button>
-          </View>
-        </View>
-        <Modalize ref={modalizeRef} adjustToContentHeight>
-          <View style={styles.modalContainer}>
-            <Text text="Date of birth" style={styles.modalTitle} />
-            <Controller
-              control={control}
-              name="dob"
-              defaultValue={new Date()}
-              render={({ field: { onChange, value } }) => (
-                <DateTimePicker
-                  display="spinner"
-                  value={value}
-                  onChange={(_: Event, date: Date | undefined) => onChange(date)}
+              <HelperText type="error" visible={!!errors.phoneNumber}>
+                {errors.phoneNumber?.message}
+              </HelperText>
+              <Controller
+                control={control}
+                name="address"
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <TextInput
+                    label="Address"
+                    value={value}
+                    onChangeText={onChange}
+                    onBlur={onBlur}
+                    error={!!errors.address}
+                  />
+                )}
+              />
+              <HelperText type="error" visible={!!errors.address}>
+                {errors.address?.message}
+              </HelperText>
+              <View style={styles.btnContainer}>
+                <Button mode="contained" color="white" onPress={onCancel}>
+                  Cancel
+                </Button>
+                <Button mode="contained" labelStyle={{ color: 'white' }} onPress={handleSubmit(onSubmit)}>
+                  Add
+                </Button>
+              </View>
+            </View>
+            <Modalize ref={modalizeRef} adjustToContentHeight>
+              <View style={styles.modalContainer}>
+                <Text text="Date of birth" style={styles.modalTitle} />
+                <Controller
+                  control={control}
+                  name="dob"
+                  defaultValue={new Date()}
+                  render={({ field: { onChange, value } }) => (
+                    <DateTimePicker
+                      display="spinner"
+                      value={value}
+                      onChange={(_: Event, date: Date | undefined) => onChange(date)}
+                    />
+                  )}
                 />
-              )}
-            />
-          </View>
-        </Modalize>
-      </ReactNativeModal>
-    </>
+              </View>
+            </Modalize>
+          </>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    </ReactNativeModal>
   )
 }
 
 const styles = ScaledSheet.create({
+  keyboardAvoidingView: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   modal: {
     margin: 0,
   },

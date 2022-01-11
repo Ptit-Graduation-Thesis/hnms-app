@@ -8,14 +8,14 @@ import { AxiosError } from 'axios'
 
 import { goBack } from '@/navigation/NavigationService'
 import Assets from '@/assets'
-import ModalSearchItem from './ModalSearchItem'
 import { OverlayLoading, Text, Touchable } from '@/common'
 import { formatMoney } from '@/utils/helper'
 import { CustomerType, ItemType } from '@/types/item.type'
-import ModalSelectCustomer from './ModalSelectCustomer'
-import ModalCreateCustomer from './ModalCreateCustomer'
 import { api } from '@/utils/axios'
 import { QUERY_KEY } from '@/data'
+import ModalSelectCustomer from './ModalSelectCustomer'
+import ModalCreateCustomer from './ModalCreateCustomer'
+import ModalSearchItem from './ModalSearchItem'
 import ModalQrScan from './ModalQrScan'
 
 const SellItem = () => {
