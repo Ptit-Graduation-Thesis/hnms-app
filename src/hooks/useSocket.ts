@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
+
 import socketIO, { Socket } from 'socket.io-client'
-import Config from 'react-native-config'
 import { Alert } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
 import { useAppContext } from '@/contexts/app.context'
 import { SocketEvent } from '@/enums/socket-event'
+
+import Config from 'react-native-config'
 
 export const useSocket = () => {
   const { state } = useAppContext()

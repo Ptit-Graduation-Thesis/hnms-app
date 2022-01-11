@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query'
 
 import { api } from '@/utils/axios'
+
 import { QUERY_KEY } from './query-key'
 
 export const useProfile = () =>

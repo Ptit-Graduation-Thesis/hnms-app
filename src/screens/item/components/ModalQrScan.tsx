@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ReactNativeModal from 'react-native-modal'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import { Alert, View } from 'react-native'

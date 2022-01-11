@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView, Alert } from 'react-native'
 import { Appbar, Button, TextInput } from 'react-native-paper'
 import { scale, ScaledSheet } from 'react-native-size-matters'
@@ -10,8 +11,8 @@ import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import i18next from 'i18next'
-
 import { useMutation } from 'react-query'
+
 import Assets from '@/assets'
 import { goBack } from '@/navigation/NavigationService'
 import { useAppContext } from '@/contexts/app.context'

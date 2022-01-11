@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { StringMap, TOptions } from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { Text as RNText, TextProps as RNTextProps } from 'react-native'

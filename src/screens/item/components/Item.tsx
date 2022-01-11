@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Image, Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, View } from 'react-native'
 import { scale, ScaledSheet } from 'react-native-size-matters'
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
@@ -12,8 +13,9 @@ import { useItems, useProfile } from '@/data'
 import { formatMoney } from '@/utils/helper'
 import { navigate } from '@/navigation/NavigationService'
 import ROUTER from '@/navigation/config/router'
-import ModalQrScan from './ModalQrScan'
 import { RoleStatus } from '@/enums/role-status.enum'
+
+import ModalQrScan from './ModalQrScan'
 
 const Item: React.FC = () => {
   const { t } = useTranslation()

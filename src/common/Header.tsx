@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Appbar } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
 import { ScaledSheet } from 'react-native-size-matters'

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
+
 import { getAppContext } from '@/contexts/app.context'
 
 export const getItem = async (key: string) => {

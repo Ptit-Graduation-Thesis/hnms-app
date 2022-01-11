@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Image, ImageProps } from 'react-native'
 
 interface IconProps extends ImageProps {

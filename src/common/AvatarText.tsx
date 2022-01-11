@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Avatar } from 'react-native-paper'
 
 import { nonAccentVietnamese } from '@/utils/helper'

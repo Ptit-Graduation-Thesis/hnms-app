@@ -1,7 +1,8 @@
 import axios from 'axios'
-import Config from 'react-native-config'
 
 import { getToken } from '@/utils/storage'
+
+import Config from 'react-native-config'
 
 export const api = axios.create({
   baseURL: Config.API_URL,

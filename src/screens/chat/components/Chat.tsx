@@ -1,17 +1,19 @@
 import React from 'react'
+
 import { Keyboard, KeyboardAvoidingView, View } from 'react-native'
 import { scale, ScaledSheet, verticalScale } from 'react-native-size-matters'
 import { useTranslation } from 'react-i18next'
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
 import debounce from 'lodash.debounce'
-
 import { Title, Searchbar } from 'react-native-paper'
+
 import { ListView, OverlayLoading, Text, Touchable, AvatarText } from '@/common'
 import { useRooms } from '@/data'
 import Assets from '@/assets'
-import ModalSearchUser from './ModalSearchUser'
 import { navigate } from '@/navigation/NavigationService'
 import ROUTER from '@/navigation/config/router'
+
+import ModalSearchUser from './ModalSearchUser'
 
 const Chat = () => {
   const { t } = useTranslation()

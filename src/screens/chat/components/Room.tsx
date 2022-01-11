@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { ActivityIndicator, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import { ParamListBase, RouteProp, useRoute } from '@react-navigation/native'

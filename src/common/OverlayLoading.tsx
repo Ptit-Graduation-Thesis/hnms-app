@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Keyboard, ActivityIndicator, View } from 'react-native'
 import { ScaledSheet } from 'react-native-size-matters'
 import ReactNativeModal from 'react-native-modal'

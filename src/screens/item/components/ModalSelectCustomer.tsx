@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react'
+
 import { Keyboard, View } from 'react-native'
 import ReactNativeModal from 'react-native-modal'
 import { scale, ScaledSheet } from 'react-native-size-matters'
 import { Searchbar, Subheading, Title, FAB } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
 import debounce from 'lodash.debounce'
-
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets'
+
 import { ListView, OverlayLoading, Text, Touchable } from '@/common'
 import Assets from '@/assets'
 import { useCustomers } from '@/data'
